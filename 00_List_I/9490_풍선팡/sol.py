@@ -3,7 +3,7 @@ sys.stdin = open("input.txt", "r")
 
 T = int(input())
 
-def flower_count(x, y, N, M):         # 꽃가루의 총합의 구하는 함수
+def flower_count(x, y):         # 꽃가루의 총합의 구하는 함수
     r = balloon[x][y]                 # 풍선이 터지는 범위
     result = 0                        # 꽃가루 총합
     for i in range(-r, r+1):          # 세로방향으로 터지는 풍선
@@ -30,9 +30,12 @@ for test_case in range(1, T + 1):
     max_result = 0                  # 최대 꽃가루 총합
 
     balloon = [list(map(int, input().split())) for i in range(N)]    # 풍선 배열
+    flowers = []
     for x in range(N):
         for y in range(M):
-            result = flower_count(x, y, N, M)    # 풍선 배열을 모두 돌아 최대 꽃가루 총합을 구한다.
+            result = flower_count(x, y)  # 풍선 배열을 모두 돌아 최대 꽃가루 총합을 구한다.
+            flowers.append(result)
             if result > max_result:
                 max_result = result
+    print(flowers)
     print(f'#{test_case}', max_result)
