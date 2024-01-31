@@ -31,11 +31,6 @@ def go_trip(start, K, end):           # 전기버스가 이동할 수 있는지 
         # 충전소가 없다면 이동 불가능과 0을 반환
         return available, 0
 
-
-
-
-
-
 for test_case in range(1, T + 1):
     charging_count = 0
     K, N, M = map(int, input().split())
@@ -60,5 +55,3 @@ for test_case in range(1, T + 1):
         x, y = go_trip(y, K, N) # 다시 이동
 
     print(f'#{test_case}', count)
-
-
