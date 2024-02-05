@@ -18,8 +18,14 @@ for tc in range(1, T+1):
         for j in range(N-M+1):
             # 슬라이싱을 이용하여 M 길이의 문자열 구하기
             str1 = matrix[i][j:j+M]
-            # 구한 문자열 뒤집기
-            str2 = str1[::-1]
+
+            # 끝에서부터 더하기
+            str2 = ''
+            for c in range(len(str1)):
+                str2 += str1[M-c-1]
+            # print(str2)
+            # 구한 문자열 뒤집기 (슬라이싱)
+            # str2 = str1[::-1]
             # 비교해서 같으면 회문
             if str1 == str2:
                 result = str1
