@@ -8,6 +8,7 @@ for tc in range(1, T+1):
     str2 = input()
     # str2의 단어들과 개수를 담을 딕셔너리 생성
     word_dict = {w: 0 for w in str1}
+    print(word_dict)
     # 가장 많은 글자 개수
     max_count = 0
 
