@@ -1,53 +1,29 @@
-def isFull():
-    if rear == N-1:
-        return True
-    else:
-        return False
-
-def isEmpty():
-    if front == rear:
-        return True
-    else:
-        return False
-
-def Qpeek():
-    if isEmpty():
-        print('No item')
-    else:
-        return q[front+1]
-
-def enQ(item):
-    global rear
-    if isFull():
-        print('Full')
-    else:
-        rear += 1
-        q[rear] = item
-
-def deQ():
-    global front
-    if isEmpty():
-        print('No item')
-
-    else:
-        front += 1
-        temp = q[front]
-        return temp
+class Queue:
+    def __init__(self, maxsize):
+        self.size = maxsize
+        self.item = [None] * maxsize
+        self.rear = -1
+        self.front = -1
 
 
-N = 10
-
-q = [0] * N
-front = rear = -1
-
-for i in range(1, 4):
-    enQ(i)
-
-for j in range(2):
-    deQ()
-
-print(isEmpty())
+    def enQueue(self, item):
+        self.rear += 1
+        self.item[self.rear] = item
 
 
+    def deQueue(self):
+        self.front += 1
 
+        return self.item[self.front]
+
+
+q = Queue(3)
+q.enQueue(1)
+q.enQueue(2)
+q.enQueue(3)
+print(q.item)
+print(q.deQueue())
+print(q.deQueue())
+print(q.deQueue())
+print(q.item)
 
