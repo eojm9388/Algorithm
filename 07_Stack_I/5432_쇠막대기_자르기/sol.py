@@ -4,19 +4,28 @@ sys.stdin = open('input.txt')
 T = int(input())
 
 for tc in range(1, T+1):
-    str1 = list(input())
-    N = len(str1)
+    str1 = input()
+    result = 0
+    count = 0
+    stack = []
+    for tk in str1:
+        if tk == '(':
+            if stack:
+                count += 1
+                stack.append(tk)
+            else:
+                stack.append(tk)
 
-    counts = [None] * N
+        else:
+            if count:
+                print(stack, count)
+                result += count
+                count -= 1
+            stack.pop()
 
-    for i in range(1, N):
-        if str1[i-1] == '(' and str1[i] == ')':
-            counts[i] = 'l'
-        elif str1[i-1] == '(' and str1[i] == '(':
-            counts[i] = 's'
-        elif str1[i-1] == ')' and str1[i] == '(':
-            counts[i] = 's'
-        elif str1[i-1] == ')' and str1[i] == ')':
-            counts[i] = 's'
+    print(result)
 
-    print(counts)
+
+
+
+
